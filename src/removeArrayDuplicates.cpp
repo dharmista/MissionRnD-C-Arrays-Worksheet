@@ -13,7 +13,31 @@ NOTES: Don't create new array, try to change the input array.
 
 #include <stdio.h>
 
+bool validate(int * Arr, int len)
+{
+	if (Arr == NULL)
+		return false;
+	if (len <= 0)
+		return NULL;
+}
+
 void * removeArrayDuplicates(int *Arr, int len)
 {
+	if (!validate(Arr, len))
+		return NULL;
+	for (int i = 0; i < len; i++)
+	{
+		for (int j = 0; j < len; j++)
+		{
+			if (Arr[i] == Arr[j] && i != j&&Arr[i] != ' ')
+				Arr[j] = ' ';
+		}
+	}
+	int k = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if (Arr[i] != ' ')
+			Arr[k++] = Arr[i];
+	}
 	return NULL;
 }

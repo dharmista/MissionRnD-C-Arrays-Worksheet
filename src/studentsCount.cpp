@@ -15,6 +15,26 @@ NOTES:
 
 #include <stdio.h>
 
-void * studentsCount(int *Arr, int len, int score, int *lessCount, int *moreCount) {
+bool validate1(int * Arr, int len)
+{
+	if (Arr == NULL)
+		return false;
+	if (len <= 0)
+		return false;
+}
+
+void * studentsCount(int *Arr, int len, int score, int *lessCount, int *moreCount) 
+{
+	if (!validate1(Arr, len))
+		return NULL;
+	int i;
+	for (i = 0; i < len; i++)
+	{
+		if (Arr[i] >= score)
+			break;
+	}
+	*lessCount = i;
+	while (Arr[i] == score) i++;
+	*moreCount = len -i;
 	return NULL;
 }
